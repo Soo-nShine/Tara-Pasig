@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tara! Pasig! | Home</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="home-page">
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="explore.html">Explore Pasig</a>
+        <a href="quests.html">Quests</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="contactus.html">Contact Us</a>
+    </nav>
+
+    <header class="home-hero">
+        <h1 class="visually-hidden">Tara! Pasig!</h1>
+        <img src="src/TaraPasig.png" alt="Tara! Pasig!">
+    </header>
+
+    <main>
+        <section class="home-progress" aria-labelledby="progress-title">
+            <div class="section-heading">
+                <h2 id="progress-title">Your Quest Progress</h2>
+                <p>Keep exploring Pasig and complete quests along the way.</p>
+            </div>
+            <p class="home-progress-count">
+                <span id="homeQuestCount">0</span>
+                <span>of <span id="homeQuestTotal">0</span> quests completed</span>
+            </p>
+        </section>
+
+        <section class="gallery-section" aria-labelledby="destinations-title">
+            <div class="section-heading">
+                <h2 id="destinations-title">Places to Discover</h2>
+                <p>Here are three places to inspire your next Pasig adventure.</p>
+            </div>
+            <div class="gallery" id="featuredLocations"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Tara! Pasig!</p>
+        <p>Created by Deanne Boado; Sean Dayola and Andrew Ordinanza</p>
+        <p><i>This website is for educational purposes only.</i></p>
+    </footer>
+
+    <script>
+        const questIds = [
+            "nature-trip",
+            "Add-to-Cart",
+            "Victor(y)!!!",
+            "bless-you",
+            "bless-you-two",
+            "Ikot-Ikot yarn",
+            "pasig-city-museo",
+            "Tara! Takbo!"
+        ];
+        const completedQuests =
+            JSON.parse(localStorage.getItem("completedQuests")) || [];
+        const completedQuestIds = new Set(
+            completedQuests
+                .filter(function(quest) {
+                    return quest && questIds.includes(quest.id);
+                })
+                .map(function(quest) {
+                    return quest.id;
+                })
+        );
+
+        document.getElementById("homeQuestCount").textContent =
+            completedQuestIds.size;
+        document.getElementById("homeQuestTotal").textContent =
+            questIds.length;
+
+        const locations = [
+            {
+                name: "Maybunga Rainforest Park",
+                description: "Escape into nature within the city, with free entrance.",
+                image: "src/RAVE-1.jpg",
+                place: "MaybungaRainforest"
+            },
+            {
+                name: "\"The Victor\" Statue",
+                description: "See one of the world's largest art installations.",
+                image: "src/The Victor.jpg",
+                place: "TheVictor"
+            },
+            {
+                name: "Immaculate Conception Cathedral of Pasig",
+                description: "Visit one of the oldest churches in Pasig.",
+                image: "src/Immaculate Conception of Pasig.jpg",
+                place: "ImmaculateConception"
+            },
+            {
+                name: "Sta. Clara de Montefalco Parish",
+                description: "Visit the parish dedicated to Saint Clare of Montefalco.",
+                image: "src/Sta. Clara De Montefalco.jpg",
+                place: "StaClaraDeMontefalco"
+            },
+            {
+                name: "Pasig City Revolving Tower",
+                description: "Take a look at this distinctive Pasig landmark.",
+                image: "src/Pasig City Revolving Tower.jpg",
+                place: "PasigCityRevolvingTower"
+            },
+            {
+                name: "Mutya ng Pasig Mega Market",
+                description: "Browse a variety of goods at the local market.",
+                image: "src/Pasig Mega Market.jpg",
+                place: "MutyaNgPasigMegaMarket"
+            },
+            {
+                name: "Pasig City Museum",
+                description: "Explore Pasig's history and culture.",
+                image: "src/Pasig City Museum.jpg",
+                place: "PasigCityMuseum"
+            },
+            {
+                name: "PhilSports Arena",
+                description: "Visit the multi-purpose sports complex formerly known as ULTRA.",
+                image: "src/PhilSports Complex.jpg",
+                place: "PhilSportsComplex"
+            }
+        ];
+
+        for (let index = locations.length - 1; index > 0; index--) {
+            const randomIndex = Math.floor(Math.random() * (index + 1));
+            [locations[index], locations[randomIndex]] =
+                [locations[randomIndex], locations[index]];
+        }
+
+        const featuredLocations = document.getElementById("featuredLocations");
+
+        locations.slice(0, 3).forEach(function(location) {
+            const card = document.createElement("article");
+            card.className = "gallery-card";
+
+            const link = document.createElement("a");
+            link.href = "details.html?place=" + encodeURIComponent(location.place);
+            link.setAttribute("aria-label", "View details for " + location.name);
+
+            const image = document.createElement("img");
+            image.src = location.image;
+            image.alt = location.name;
+            link.appendChild(image);
+
+            const text = document.createElement("div");
+            text.className = "gallery-text";
+
+            const title = document.createElement("h3");
+            title.textContent = location.name;
+
+            const description = document.createElement("p");
+            description.textContent = location.description;
+
+            text.append(title, description);
+            card.append(link, text);
+            featuredLocations.appendChild(card);
+        });
+    </script>
+</body>
+</html>

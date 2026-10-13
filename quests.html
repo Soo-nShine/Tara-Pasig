@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tara! Pasig! | Quests</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body class="quests-page">
+
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="explore.html">Explore Pasig</a>
+        <a href="quests.html">Quests</a>
+        <a href="aboutus.html">About Us</a>
+        <a href ="contactus.html">Contact Us</a>
+        <div class="branding"><img src="src/TaraPasig.png" alt="Tara! Pasig! Logo"></div>
+    </nav>
+
+    <header class="page-header">
+        <p class="eyebrow">Your journey starts here...</p>
+        <h1>Quests</h1>
+    </header>
+
+    <main>
+        <section class="quest-summary" aria-labelledby="progress-title">
+            <div class="section-heading">
+                <h2 id="progress-title">Your Progress</h2>
+                <p>Complete quests as you discover the destinations, history, and culture of Pasig City.</p>
+            </div>
+            <h3>Quests Completed: <span id="completedCount">0</span>/<span id="questTotal">0</span></h3>
+            <div id="ProgressBar"
+                 role="progressbar"
+                 aria-label="Quest completion"
+                 aria-valuemin="0"
+                 aria-valuemax="0"
+                 aria-valuenow="0">
+                <div id="Bar"></div>
+            </div>
+        </section>
+
+        <section class="quests-gallery" aria-labelledby="quests-title">
+            
+            <div class="section-heading">
+                <h2>Quests</h2>
+                <p>Feel Free to go in any order and in your own pace! Pasig is here to stay.</p>
+            </div>
+            <h2 id="quests-title">Available Quests</h2>
+
+            <div class="quest-gallery">
+            <article id="nature-trip">
+                <h3>Nature trip</h3>
+                <p>
+                    Visit the Maybunga Rainforest Park, libre ang entrance!
+                </p>
+                
+                <div style="display: flex; gap: 10px;">
+                    <button class="info-button">
+                        <a href="details.html?place=MaybungaRainforest" target="_self">
+                            Location Details
+                        </a>
+                    </button>
+                <button class="complete-quest"
+                        data-id="nature-trip"
+                        data-xp="1">
+                    Complete Quest
+                </button>
+                </div>
+            </article>
+
+            <article id="Add-to-Cart">
+                <h3>Add to Cart?</h3>
+                <p>
+                    Visit the Mutya ng Pasig Mega Market.
+                    (Optional: Mag-bili ka yah)
+                </p>
+                
+                <div style="display: flex; gap: 10px;">
+                    <button class="info-button">
+                        <a href="details.html?place=MutyaNgPasigMegaMarket" target="_self">
+                            Location Details
+                        </a>
+                    </button>
+                <button class="complete-quest"
+                        data-id="Add-to-Cart"
+                        data-xp="1">
+                    Complete Quest
+                </button>
+                </div>
+            </article>
+
+            <article id="Victor(y)!!!">
+                <h3>Victor(y)!!!</h3>
+                <p>
+                    Visit the "The Victor" Statue located within Bridgetowne.
+                </p>
+            
+                <div style="display: flex; gap: 10px;">
+                    <button class="info-button">
+                        <a href="details.html?place=TheVictor" target="_self">
+                            Location Details
+                        </a>
+                    </button>
+                <button class="complete-quest"
+                        data-id="Victor(y)!!!"
+                        data-xp="1">
+                    Complete Quest
+                </button>
+                </div>
+            </article>
+            
+
+            <article id="bless-you">
+                <h3>Bless you!</h3>
+                <p>
+                    Visit the Immaculate Conception Cathedral of Pasig and pray.
+                </p>
+                
+               <div style="display: flex; gap: 10px;">
+                    <button class="info-button">
+                        <a href="details.html?place=ImmaculateConception" target="_self">
+                            Location Details
+                        </a>
+                    </button>
+                <button class="complete-quest"
+                        data-id="bless-you"
+                        data-xp="1">
+                    Complete Quest
+                </button>
+                </div>
+            </article>
+
+            <article id="bless-you-two">
+                <h3>Bless you two!</h3>
+                <p>
+                    Visit the Santa Clara de Montefalco Parish and pray, it doesn't hurt to pray again.
+                </p>
+                
+                <div style="display: flex; gap: 10px;">
+                    <button class="info-button">
+                        <a href="details.html?place=StaClaraDeMontefalco" target="_self">
+                            Location Details
+                        </a>
+                    </button>
+                <button class="complete-quest"
+                        data-id="bless-you-two"
+                        data-xp="1">
+                    Complete Quest
+                </button>
+                </div>
+            </article>
+
+            <article id="Ikot-Ikot yarn">
+                <h3>Ikot-Ikot yarn</h3>
+                <p>
+                    Visit the Pasig City Revolving Tower.  
+                </p>
+                
+               <div style="display: flex; gap: 10px;">
+                    <button class="info-button">
+                        <a href="details.html?place=" target="_self">
+                            Location Details
+                        </a>
+                    </button>
+                <button class="complete-quest"
+                        data-id="Ikot-Ikot yarn"
+                        data-xp="1">
+                    Complete Quest
+                </button>
+                </div>
+            </article>
+
+            <article id="pasig-city-museo">
+                <h3>Pasig City Museo</h3>
+                <p>
+                    Visit the Pasig City Museum.  
+                </p>
+                
+               <div style="display: flex; gap: 10px;">
+                    <button class="info-button">
+                        <a href="details.html?place=MaybungaRainforest" target="_self">
+                            Location Details
+                        </a>
+                    </button>
+                <button class="complete-quest"
+                        data-id="pasig-city-museo"
+                        data-xp="1">
+                    Complete Quest
+                </button>
+                </div>
+            </article>
+
+            <article id="Tara! Takbo!">
+                <h3>Tara! Takbo!</h3>
+                <p>
+                    Visit the PhilSports Complex, and run a lap or two around.  
+                </p>
+                
+               <div style="display: flex; gap: 10px;">
+                    <button class="info-button">
+                        <a href="details.html?place=MaybungaRainforest" target="_self">
+                            Location Details
+                        </a>
+                    </button>
+                <button class="complete-quest"
+                        data-id="Tara! Takbo!"
+                        data-xp="1">
+                    Complete Quest
+                </button>
+                </div>
+            </article>
+
+            </div>
+        </section>
+
+        <p id="message" aria-live="polite"></p>
+    </main>
+
+   <footer>
+        <p>© 2026 Tara! Pasig!</p>
+        <p>Created by Deanne Boado; Sean Dayola and Andrew Ordinanza</p>
+        <p style="font-size: 10px"><i>This website is for educational purposes only.</i></p>
+    </footer>
+
+
+
+    <script>
+const questButtons = document.querySelectorAll(".complete-quest");
+
+function getCompletedQuests() {
+    return JSON.parse(localStorage.getItem("completedQuests")) || [];
+}
+
+function updateProgress() {
+    const completedQuests = getCompletedQuests();
+    const completedCount = Array.from(questButtons).filter(function(button) {
+        return completedQuests.some(function(quest) {
+            return quest.id === button.dataset.id;
+        });
+    }).length;
+    const progressBar = document.getElementById("ProgressBar");
+    const progress = questButtons.length === 0
+        ? 0
+        : (completedCount / questButtons.length) * 100;
+
+    document.getElementById("completedCount").textContent = completedCount;
+    document.getElementById("questTotal").textContent = questButtons.length;
+    document.getElementById("Bar").style.width = progress + "%";
+    progressBar.setAttribute("aria-valuemax", questButtons.length);
+    progressBar.setAttribute("aria-valuenow", completedCount);
+}
+
+function updateQuestButtons() {
+    const completedQuests = getCompletedQuests();
+
+    questButtons.forEach(function(button) {
+        const questCard = button.closest("article");
+        const questId = button.dataset.id;
+
+        const isCompleted = completedQuests.some(function(quest) {
+            return quest.id === questId;
+        });
+
+        if (isCompleted) {
+            button.textContent = "Completed";
+            button.disabled = true;
+            questCard.dataset.status = "completed";
+        } else {
+            button.textContent = "Complete Quest";
+            button.disabled = false;
+            questCard.dataset.status = "incomplete";
+        }
+    });
+}
+
+questButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
+        const questId = button.dataset.id;
+        const questXP = Number(button.dataset.xp);
+
+        const completedQuests = getCompletedQuests();
+
+        const alreadyCompleted = completedQuests.some(function(quest) {
+            return quest.id === questId;
+        });
+
+        if (!alreadyCompleted) {
+            completedQuests.push({
+                id: questId,
+                xp: questXP
+            });
+
+            localStorage.setItem(
+                "completedQuests",
+                JSON.stringify(completedQuests)
+            );
+        }
+
+        updateQuestButtons();
+        updateProgress();
+    });
+});
+
+updateQuestButtons();
+updateProgress();
+    </script>
+
+</body>
+</html>

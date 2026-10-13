@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Tara! Pasig!</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body class="contact-page">
+
+    <header>
+             <nav class="site-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="explore.html">Explore Pasig</a>
+            <a href="quests.html">Quests</a>
+            <a href="aboutus.html">About Us</a>
+            <a href ="contactus.html">Contact Us</a>
+            <div class="branding"><img src="src/TaraPasig.png" alt="Tara! Pasig! Logo"></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class = "contact-section">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or spotted a bug, feel free to reach out to us!</p>
+
+           <div class="message_box">
+    <form onsubmit="return false;">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your Email"><br><br>
+
+        <label for="subject">Subject:</label><br>
+        <input type="text" id="subject" name="subject" placeholder="Enter Subject"><br><br>
+
+        <label for="message">Message:</label><br>
+               <textarea id="message" name="message" rows="4" cols="50" placeholder="Enter your message/concern here"></textarea><br><br>
+
+        
+        <button class="submit">Submit</button>
+        
+    </form>
+    </div>
+            <p><em>Warning: We are not affiliated with any official government agency, and this is merely an independent tourism initiative.</em></p>
+        </section>
+    </main>
+    
+    <section class="about-section">
+
+        <h2>Official Facebook page of the Pasig City Cultural Affairs and Tourism Office</h2>
+        <p>For information and questions about the city's official tourism activities, please visit the Official page of Pasig City CATO.</p>
+        <button class="location-btn" onclick="window.location.href='https://www.facebook.com/CATOPasig/';">Pasig City CATO</button>
+    </section>
+
+    <footer>
+        <p>© 2026 Tara! Pasig!</p>
+        <p>Created by Deanne Boado; Sean Dayola and Andrew Ordinanza</p>
+        <p style="font-size: 15px"><i>This website is for educational purposes only.</i></p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination Details | Tourist for a Day</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body class="details-page">
+
+    <header>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="explore.html">Explore Pasig</a>
+            <a href="quests.html">Quests</a>
+            <a href="aboutus.html">About Us</a>
+            <a href ="contactus.html">Contact Us</a>
+            <div class="branding"><img src="src/TaraPasig.png" alt="Tara! Pasig! Logo"></div>
+        </nav>
+    
+    </header>
+
+    <section class="location-menu">
+        <h2>Locations</h2>
+        <div style="display: flex; gap: 10px;">
+            <button class="location-btn"><a href="details.html?place=MaybungaRainforest">Maybunga Rainforest Park</a></button>
+            <button class="location-btn"><a href="details.html?place=TheVictor">The Victor Statue</a></button>
+            <button class="location-btn"><a href="details.html?place=ImmaculateConception">Immaculate Conception Cathedral of Pasig</a></button>
+            <button class="location-btn"><a href="details.html?place=StaClaraDeMontefalco">Sta. Clara de Montefalco Parish</a></button>
+            <button class="location-btn"><a href="details.html?place=PasigCityMuseum">Pasig City Museum</a></button>
+            <button class="location-btn"><a href="details.html?place=PhilSportsComplex">PhilSports Complex</a></button>
+            <button class="location-btn"><a href="details.html?place=MutyaNgPasigMegaMarket">Mutya ng Pasig Mega Market</a></button>
+            <button class="location-btn"><a href="details.html?place=PasigCityRevolvingTower">Pasig City Revolving Tower</a></button>
+
+        </div>
+    </section>
+
+    <main>
+        <section class="destination-details">
+            <h2 class="details-heading">Destination Details</h2>
+            <h2 id="placeName">Destination Details</h2>
+            <div class="destination-layout">
+                <img id="placeImage" alt="" hidden>
+                <div class="destination-copy">
+                    <p id="placeDescription"></p>
+                    <p id="placeQuest"></p>
+                    <p id="placeAddress"></p>
+                    <a id="questLink" href="quests.html">Go to Related Quest</a>
+                </div>
+            </div>
+            <a href="explore.html">Back to Explore Pasig</a>
+        </section>
+
+    </main>
+
+     <footer>
+        <p>© 2026 Tara! Pasig!</p>
+        <p>Created by Deanne Boado; Sean Dayola and Andrew Ordinanza</p>
+        <p style="font-size: 15px"><i>This website is for educational purposes only.</i></p>
+    </footer>
+
+    <script>
+        const destinations = {
+            TheVictor: {
+                name: "'The Victor' Statue",
+                description:
+                    "The Victor Statue is one of the tallest public art installations around the world, that stands at 60 meters tall. It is a symbol of the indomitable spirit of the Filipino people, In collaboration with renowned Fil-Am artist Jefrё Manuel-Figueras, the art piece is a towering construction that is deemed by the developers as one of the world’s tallest art installation with lighting projection.", 
+                src: "src/The Victor.jpg",
+                    quest: "Victor(y)!!!",
+                    address: "Bridgetowne, Pasig City, Metro Manila"
+            },
+
+            MaybungaRainforest: {
+                name: "Maybunga Rainforest Park",
+                description:
+                    "One of the few reamining green spaces in the whole of Metro Manila, the Maybunga Rainforest Park was opened in 1977 ands has gone through several renovations. In its current state, the park now features more facilities for recreational activities and serves as a small ecosystem for various species.",
+                src: "src/RAVE-1.jpg",
+                quest: "Nature Trip",
+                address: "Francisco Legaspi St., Maybunga, Pasig, Metro Manila"
+            },
+
+            ImmaculateConception: {
+                name: "Immaculate Conception Cathedral of Pasig (Pasig Cathedral)",
+                description:
+                    "It is the mother church, and serves as the episcopal seat of the Bishop of Pasig and is one of the oldest structures in the city.",
+                    src: "src/Immaculate Conception of Pasig.jpg",
+                quest: "Bless you!",
+                address: "Plaza Rizal, Malinao Pasig City, Metro Manila "
+            },
+
+            StaClaraDeMontefalco: {
+                name: "Sta. Clara de Montefalco Parish",
+                description:
+                    "",
+                    src: "src/Sta. Clara De Montefalco.jpg",
+                quest: "Bless you two!",
+                address:"C. Raymundo Ave., Brgy. Caniogan Pasig City, Metro Manila"
+            },
+
+            PasigCityMuseum: {
+                name: "Pasig City Museum",
+                description:
+                    "",
+                    src: "src/Pasig City Museum.jpg",
+                quest: "Pasig City Museo",
+                address: "Plaza Rizal, Malinao Pasig City, Metro Manila"
+            },
+            PhilSportsComplex: {
+                name: "PhilSports Complex",
+                description:
+                    "",
+                    src: "src/PhilSports Complex.jpg",
+                quest: "Tara! Takbo!",
+                address: "Meralco Ave, Pasig, Metro Manila"
+            },
+            MutyaNgPasigMegaMarket: {
+                name: "Mutya ng Pasig Mega Market",
+                description:
+                    "",
+                    src: "src/Pasig Mega Market.jpg",
+                quest: "Add to Cart?"
+            },
+            PasigCityRevolvingTower: {
+                name: "Pasig City Revolving Tower",
+                description:
+                    "",
+                    src: "src/Pasig City Revolving Tower.jpg",
+                quest: "Ikot-Ikot yarn",
+                address: "3 Market Ave, Pasig, Metro Manila"
+            }
+
+        };
+
+        const parameters = new URLSearchParams(
+            window.location.search
+        );
+
+        const selectedPlace = parameters.get("place");
+
+        const destination = destinations[selectedPlace];
+
+        if (destination) {
+            const questLink = document.getElementById("questLink");
+
+
+            document.getElementById("placeName").textContent =
+                destination.name;
+
+            const placeImage = document.getElementById("placeImage");
+            if (destination.src) {
+                placeImage.src = destination.src;
+                placeImage.alt = destination.name;
+                placeImage.hidden = false;
+            }
+
+            document.getElementById("placeDescription").textContent =
+                destination.description;
+
+            document.getElementById("placeQuest").textContent =
+                "Suggested Quest: " + destination.quest;
+            document.getElementById("placeAddress").textContent =
+                "Address: " + destination.address;
+        } else {
+            document.getElementById("placeName").textContent =
+                "Choose a Destination";
+
+            document.getElementById("placeDescription").textContent =
+                "No destination was selected. Return to Explore Pasig and click View Details under a destination.";
+        }
+    </script>
+
+</body>
+</html>
