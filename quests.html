@@ -265,15 +265,10 @@ function updateQuestButtons() {
             return quest.id === questId;
         });
 
-        if (isCompleted) {
-            button.textContent = "Completed";
-            button.disabled = true;
-            questCard.dataset.status = "completed";
-        } else {
-            button.textContent = "Complete Quest";
-            button.disabled = false;
-            questCard.dataset.status = "incomplete";
-        }
+        button.textContent = isCompleted ? "Undo Completion" : "Complete Quest";
+        button.setAttribute("aria-pressed", isCompleted);
+        button.disabled = false;
+        questCard.dataset.status = isCompleted ? "completed" : "incomplete";
     });
 }
 
@@ -288,7 +283,16 @@ questButtons.forEach(function(button) {
             return quest.id === questId;
         });
 
-        if (!alreadyCompleted) {
+        if (alreadyCompleted) {
+            const remainingQuests = completedQuests.filter(function(quest) {
+                return quest.id !== questId;
+            });
+
+            localStorage.setItem(
+                "completedQuests",
+                JSON.stringify(remainingQuests)
+            );
+        } else {
             completedQuests.push({
                 id: questId,
                 xp: questXP

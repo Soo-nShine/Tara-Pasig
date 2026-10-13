@@ -446,6 +446,16 @@ button.location-btn{
     background: #52665c;
 }
 
+.quests-page .complete-quest[aria-pressed="true"] {
+    color: #35475b;
+    background: #e2e9df;
+}
+
+.quests-page .complete-quest[aria-pressed="true"]:hover,
+.quests-page .complete-quest[aria-pressed="true"]:focus-visible {
+    background: #cbd8c8;
+}
+
 .quests-page .complete-quest:focus-visible,
 .quests-page .info-button:focus-visible {
     outline: 3px solid #a8bfaa;
@@ -499,11 +509,6 @@ button.location-btn{
     cursor: pointer;
 }
 
-@media (max-width: 800px) {
-    .legacy-page .destination-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
 @media (max-width: 600px) {
     
